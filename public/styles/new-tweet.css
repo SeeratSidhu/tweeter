@@ -54,3 +54,7 @@
     /* position: absolute; */
     top: 1.5rem;
 }
+
+.invalid {
+  color: red;
+}
