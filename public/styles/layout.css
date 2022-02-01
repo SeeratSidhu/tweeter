@@ -31,4 +31,6 @@ body {
    width: 90%;
    align-self: center;
    background-color: #f4f1ec;
+   display: flex;
+   justify-content: center;
  }
