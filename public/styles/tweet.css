@@ -1,0 +1,49 @@
+.tweet-container {
+  width: 90%;
+}
+.tweet {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  background-color: rgb(228, 176, 118);
+  padding: 1.5em;
+  border: 2px solid #545149;
+}
+
+hr {
+  width: 100%;
+  border: 2px solid #545149;
+}
+
+article.tweet header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.handle {
+  color: rgb(128, 124, 124);
+  font-weight: 600;
+}
+
+article.tweet footer {
+  font-size: smaller;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icons {
+  display: flex;
+  gap: 5px;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+article.tweet p {
+  color: #686459;
+  font-weight: 700;
+}

@@ -16,7 +16,7 @@ html {
 
 body {
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: rgb(246, 229, 208);
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
   display: flex;
@@ -30,7 +30,9 @@ body {
  .container {
    width: 90%;
    align-self: center;
-   background-color: #f4f1ec;
+   background-color: rgb(246, 229, 208);
    display: flex;
+   flex-flow: column;
    justify-content: center;
+   align-items: center;
  }
