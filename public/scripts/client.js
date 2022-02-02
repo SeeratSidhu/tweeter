@@ -60,5 +60,11 @@ $(document).ready(function() {
 renderTweets(data);
 $('#form').submit(function(event) {
   event.preventDefault();
+  const value = $(this).serialize();
+  const url = $(this).attr('action');
+  $.post(url, value)
+    .done((data) => {
+      console.log(data);
+    })
 })
 });
