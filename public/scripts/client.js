@@ -58,4 +58,7 @@ for (let tweet of tweetArray) {
 
 $(document).ready(function() {
 renderTweets(data);
+$('#form').submit(function(event) {
+  event.preventDefault();
+})
 });
