@@ -1,12 +1,14 @@
 .tweet-container {
-  width: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .tweet {
-  width: 100%;
+  width: 85%;
   display: flex;
   flex-flow: column;
   justify-content: center;
-  background-color: rgb(228, 176, 118);
+  /* background-color: rgb(228, 176, 118); */
   padding: 1.5em;
   border: 2px solid #545149;
 }
@@ -46,4 +48,8 @@ article.tweet footer {
 article.tweet p {
   color: #686459;
   font-weight: 700;
+}
+
+.tweet:hover {
+  box-shadow: -10px -10px 5px #c26b19;
 }

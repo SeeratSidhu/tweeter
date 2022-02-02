@@ -3,7 +3,7 @@
   display: flex;
   flex-flow: column;
   justify-content: center;
-  background-color: rgb(228, 176, 118);
+  /* background-color: rgb(228, 176, 118); */
   margin: 1em;
   padding: 1.5em;
 }
