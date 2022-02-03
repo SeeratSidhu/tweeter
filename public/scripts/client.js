@@ -61,11 +61,11 @@ $(document).ready(function() {
     const errorContainer = $(this).parent().children('#error-msg');
 
     if (!tweetText.trim() || charsLeft === 140) {
-      errorContainer.slideUp(100).slideDown(100, function() {
+      errorContainer.slideUp().slideDown(200, function() {
         errorContainer.text("Tweet cannot be posted if blank. Please try again.");
       })
     } else if (charsLeft < 0) {
-      errorContainer.slideUp(100).slideDown(100, function() {
+      errorContainer.slideUp().slideDown(200, function() {
         errorContainer.text("Maximum word limit exceeded!");
       })
     } else {
