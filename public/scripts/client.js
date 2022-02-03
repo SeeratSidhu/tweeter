@@ -4,6 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+const escapeText = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 const createTweetElement = (tweetObject) => {
   const $tweet = $(`<article class="tweet">
   <header>
@@ -11,7 +17,7 @@ const createTweetElement = (tweetObject) => {
       ><img src="https://i.imgur.com/73hZDYK.png" />${tweetObject.user.name}</span
     ><span class="handle">${tweetObject.user.handle}</span>
   </header>
-  <p>${tweetObject.content.text}</p>
+  <p>${escapeText(tweetObject.content.text)}</p>
   <hr />
   <footer>
     <span>${tweetObject.created_at}</span
@@ -44,7 +50,7 @@ $(document).ready(function() {
 
   $('#form').submit(function(event) {
     event.preventDefault();
-    
+
     const value = $(this).serialize();
     const url = $(this).attr('action');
     const charsLeft = $(this).children('.form-end').children('.counter').html();
