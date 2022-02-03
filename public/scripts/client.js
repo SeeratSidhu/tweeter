@@ -25,11 +25,11 @@ return $tweet;
 }
 
 const renderTweets = (tweetArray) => {
-for (let tweet of tweetArray) {
-  tweet['created_at'] = timeago.format(tweet.created_at);
-  const $tweet = createTweetElement(tweet);
-  $('#tweets-container').append($tweet);
-}
+  for (let tweet of tweetArray) {
+    tweet['created_at'] = timeago.format(tweet.created_at);
+    const $tweet = createTweetElement(tweet);
+    $('#tweets-container').prepend($tweet);
+  }
 }
 
 $(document).ready(function() {
@@ -44,10 +44,13 @@ $(document).ready(function() {
 
   $('#form').submit(function(event) {
     event.preventDefault();
+    
     const value = $(this).serialize();
     const url = $(this).attr('action');
     const charsLeft = $(this).children('.form-end').children('.counter').html();
     const tweetText = $(this).children('.input').children('#tweet-text').val();
+    const tweetContainer = $(this).parent().siblings()  ;
+
     if (!tweetText.trim() || charsLeft === 140) {
       alert("Empty tweet!");
     } else if (charsLeft < 0) {
@@ -56,6 +59,7 @@ $(document).ready(function() {
       $.post(url, value)
         .done(() => {
           $(this).trigger('reset');
+          $(tweetContainer).empty();
           loadTweets();
         });
     }
