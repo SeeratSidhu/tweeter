@@ -57,7 +57,7 @@ $(document).ready(function() {
     const url = $(this).attr('action');
     const charsLeft = $(this).children('.form-end').children('.counter').html();
     const tweetText = $(this).children('.input').children('#tweet-text').val();
-    const tweetContainer = $(this).parent().siblings()  ;
+    const tweetContainer = $(this).parent().siblings().children('.tweet');
     const errorContainer = $(this).parent().children('#error-msg');
 
     if (!tweetText.trim() || charsLeft === 140) {
@@ -73,7 +73,7 @@ $(document).ready(function() {
       $.post(url, value)
         .done(() => {
           $(this).trigger('reset');
-          // $(tweetContainer).empty();
+          $(tweetContainer).remove();
           loadTweets();
         });
     }
