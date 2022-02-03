@@ -6,7 +6,8 @@ nav   {
   color: #FFFFFF;
   padding: 1.5em;
   z-index: 100;
-  position: fixed;
+  position: sticky;
+  flex: 0 0 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -26,7 +27,3 @@ nav > span {
   color: red;
 }
 
-/* #compose {
-  display: flex;
-  cursor: pointer;
-} */

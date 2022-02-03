@@ -1,5 +1,5 @@
 .header {
-  height: 470px;
+  height: 400px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -11,4 +11,16 @@
 
 .name {
   color: #FFFFFF;
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+  width: 34%;
+  height: 50%;
+  margin-top: 100px;
+  }
+
+  .name {
+    font-size: medium;
+  }
 }
