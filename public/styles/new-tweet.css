@@ -9,7 +9,7 @@
 }
 
 #error-msg {
-  width: 100%;
+  width: 100%;  
   border: 1px solid rgba(224, 11, 11, 0.616);
   background-color: #fce4e4;
   padding: 10px 10px;
@@ -35,6 +35,7 @@
   font-family: 'Bungee', cursive;
   border-style: none;
   padding: 0.2em 0.5em;
+  cursor: pointer;
 }
 
 .counter {

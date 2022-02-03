@@ -25,3 +25,8 @@ nav > span {
 .arrow i {
   color: red;
 }
+
+/* #compose {
+  display: flex;
+  cursor: pointer;
+} */
