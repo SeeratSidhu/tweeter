@@ -52,6 +52,7 @@ article.tweet footer {
 article.tweet p {
   color: #686459;
   font-weight: 700;
+  word-wrap: break-word;
 }
 
 .tweet:hover{

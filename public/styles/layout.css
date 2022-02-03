@@ -43,7 +43,8 @@ body {
    }
   .container {
     align-self: flex-end;
-    width: 60%;
+    width: 67%;
+    padding-left: 4em;
   }
   
  }

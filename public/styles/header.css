@@ -15,12 +15,13 @@
 
 @media screen and (min-width: 1024px) {
   .header {
-  width: 34%;
-  height: 50%;
+  width: 30%;
+  height: 350px;
   margin-top: 100px;
+  margin-left: 30px;
   }
 
   .name {
-    font-size: medium;
+    font-size:large;
   }
 }

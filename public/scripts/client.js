@@ -73,7 +73,7 @@ $(document).ready(function() {
       $.post(url, value)
         .done(() => {
           $(this).trigger('reset');
-          $(tweetContainer).empty();
+          // $(tweetContainer).empty();
           loadTweets();
         });
     }
