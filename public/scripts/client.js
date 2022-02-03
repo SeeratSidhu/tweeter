@@ -40,6 +40,8 @@ const renderTweets = (tweetArray) => {
 
 $(document).ready(function() {
 
+  $('#error-msg').hide();
+
   function loadTweets() {
     $.get('/tweets')
       .then((data) => {
@@ -56,12 +58,18 @@ $(document).ready(function() {
     const charsLeft = $(this).children('.form-end').children('.counter').html();
     const tweetText = $(this).children('.input').children('#tweet-text').val();
     const tweetContainer = $(this).parent().siblings()  ;
+    const errorContainer = $(this).parent().children('#error-msg');
 
     if (!tweetText.trim() || charsLeft === 140) {
-      alert("Empty tweet!");
+      errorContainer.slideUp(100).slideDown(100, function() {
+        errorContainer.text("Tweet cannot be posted if blank. Please try again.");
+      })
     } else if (charsLeft < 0) {
-      alert("Maximum word limit exceeded!");
+      errorContainer.slideUp(100).slideDown(100, function() {
+        errorContainer.text("Maximum word limit exceeded!");
+      })
     } else {
+      errorContainer.slideUp();
       $.post(url, value)
         .done(() => {
           $(this).trigger('reset');

@@ -8,6 +8,21 @@
   padding: 1.5em;
 }
 
+#error-msg {
+  width: 100%;
+  border: 1px solid rgba(224, 11, 11, 0.616);
+  background-color: #fce4e4;
+  padding: 10px 10px;
+  display: flex;
+  align-self: center;
+  color: #cc0033;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 20px;
+  text-shadow: 1px 1px rgba(250,250,250,.3);
+}
+
 .form-end {
   display: flex;
   justify-content: space-between;
