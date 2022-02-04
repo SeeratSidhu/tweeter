@@ -7,40 +7,65 @@
 $(document).ready(function() {
 
   $('#error-msg').hide();
+  $('.new-tweet').hide();
 
   loadTweets();
 
-  $('#form').submit(function(event) {
-    event.preventDefault();
+  // STRETCH: toggle the form on click and autofocus the textarea
+  $('.arrow').on('click', onToggle);
 
-    const data = $(this).serialize();
-    const charsLeft = $(this).find('.counter').html();
-    const $textArea = $(this).find('#tweet-text');
-    const tweetText = $textArea.val();
-    const $errorContainer = $(this).prev('#error-msg');
-    
-    // Form validations with added sliding motion
-    if (!tweetText.trim() || charsLeft === 140) {
-      $errorContainer.slideUp().slideDown(200, function() {
-        $errorContainer.text("🛑 A post cannot be blank! 🛑");
-      });
-    } else if (charsLeft < 0) {
-      $errorContainer.slideUp().slideDown(200, function() {
-        $errorContainer.text("🛑 Maximum word limit exceeded! 🛑");
-      });
-    } else {
-      $errorContainer.slideUp();
-      
-      //post a new tweet if no error
-      $.post('/tweets', data)
-        .done(() => {
-          loadTweets();
-          $(this).trigger('reset');
-          $textArea.trigger('input');
-        });
-    }
-  });
+  //validate and post the tweet
+  $('#form').submit(postTweet);
+
 });
+
+//STRETCH: callback function to toggle form
+const onToggle = function() {
+  
+  const $tweetForm = $('.new-tweet');
+  const $textArea = $tweetForm.find('#tweet-text');
+  const $errorContainer = $tweetForm.children('#error-msg');
+
+  if ($tweetForm.is(':hidden')) {
+    $tweetForm.slideDown('fast');
+    $textArea.focus();
+  } else {
+    $errorContainer.hide();
+    $tweetForm.slideUp('fast');
+  }
+};
+
+//callback function to post tweet
+const postTweet = function(event) {
+  event.preventDefault();
+
+  const data = $(this).serialize();
+  const charsLeft = $(this).find('.counter').html();
+  const $textArea = $(this).find('#tweet-text');
+  const tweetText = $textArea.val();
+  const $errorContainer = $(this).prev('#error-msg');
+    
+  // Form validations with added sliding motion
+  if (!tweetText.trim() || charsLeft === 140) {
+    $errorContainer.slideUp().slideDown(200, function() {
+      $errorContainer.text("🛑 A post cannot be blank! 🛑");
+    });
+  } else if (charsLeft < 0) {
+    $errorContainer.slideUp().slideDown(200, function() {
+      $errorContainer.text("🛑 Maximum word limit exceeded! 🛑");
+    });
+  } else {
+    $errorContainer.slideUp();
+
+    //post a new tweet if no error
+    $.post('/tweets', data)
+      .done(() => {
+        loadTweets();
+        $(this).trigger('reset');
+        $textArea.trigger('input');
+      });
+  }
+};
 
 //render tweets from "database"
 const loadTweets = () => {
@@ -74,7 +99,7 @@ const createTweetElement = (tweetObject) => {
   return $tweet;
 };
 
-//display an array of tweets on the webpage
+//display an array of tweets on the webpage in reverse-chronological order
 const renderTweets = (tweetArray) => {
 
   for (let tweet of tweetArray) {

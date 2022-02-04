@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $("#tweet-text").on('input', function() {
+  $('#tweet-text').on('input', function() {
     const text = $(this).val();
     const $form = $(this).closest('form');
     const $counter = $form.find('.counter');
