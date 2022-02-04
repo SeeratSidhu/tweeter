@@ -54,26 +54,28 @@ $(document).ready(function() {
   $('#form').submit(function(event) {
     event.preventDefault();
 
-    const value = $(this).serialize();
-    const url = $(this).attr('action');
-    const charsLeft = $(this).children('.form-end').children('.counter').html();
-    const tweetText = $(this).children('.input').children('#tweet-text').val();
+    const data = $(this).serialize();
+    const charsLeft = $(this).find('.counter').html();
+    const $textArea = $(this).children('.input').children('#tweet-text');
+    const tweetText = $textArea.val();
     const errorContainer = $(this).parent().children('#error-msg');
+    
 
     if (!tweetText.trim() || charsLeft === 140) {
       errorContainer.slideUp().slideDown(200, function() {
-        errorContainer.text("Tweet cannot be posted if blank. Please try again.");
+        errorContainer.text("🛑 A post cannot be blank! 🛑");
       })
     } else if (charsLeft < 0) {
       errorContainer.slideUp().slideDown(200, function() {
-        errorContainer.text("Maximum word limit exceeded!");
+        errorContainer.text("🛑 Maximum word limit exceeded! 🛑");
       })
     } else {
       errorContainer.slideUp();
-      $.post(url, value)
+      $.post('/tweets', data)
         .done(() => {
-          $(this).trigger('reset');
           loadTweets();
+          $(this).trigger('reset');
+          $textArea.trigger('input');
         });
     }
   });

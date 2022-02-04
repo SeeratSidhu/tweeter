@@ -1,16 +1,18 @@
 $(document).ready(function() {
-  $("#tweet-text").on('keyup', function() {
+
+  $("#tweet-text").on('input', function() {
     const text = $(this).val();
-    const form = $(this).parents().eq(1);
-    const counter = $(form).children('.form-end').children('.counter');
-    const charsLeft = (140 - text.length).toString();
-    $(counter).html(charsLeft);
+    const $form = $(this).closest('form');
+    const $counter = $form.find('.counter');
+    const charsLeft = (140 - text.length);
+    $counter.html(charsLeft);
 
     if (charsLeft < 0) {
-      $(counter).addClass('invalid');
+      $counter.addClass('invalid');
     } else {
-      $(counter).removeClass('invalid');
+      $counter.removeClass('invalid');
     }
   });
+
 });
 
