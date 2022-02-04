@@ -2,6 +2,12 @@
 
 Tweeter is a simple, single-page Twitter clone built using HTML, CSS, JS, jQuery and AJAX. Its features include a responsive design and animated error and hover effects.
 
+## Screenshot
+
+!["Desktop version (1024px and above)"](https://github.com/SeeratSidhu/tweeter/blob/master/docs/desktop.png?raw=true)
+
+!["Tablet/smartphone version (1020px and below)"](https://github.com/SeeratSidhu/tweeter/blob/master/docs/tablet-screen.png?raw=true)
+
 
 ## Getting Started
 
