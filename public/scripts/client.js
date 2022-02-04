@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     const data = $(this).serialize();
     const charsLeft = $(this).find('.counter').html();
-    const $textArea = $(this).children('.input').children('#tweet-text');
+    const $textArea = $(this).find('#tweet-text');
     const tweetText = $textArea.val();
     const $errorContainer = $(this).prev('#error-msg');
     
@@ -30,6 +30,7 @@ $(document).ready(function() {
       });
     } else {
       $errorContainer.slideUp();
+      
       //post a new tweet if no error
       $.post('/tweets', data)
         .done(() => {
