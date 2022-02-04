@@ -5,12 +5,12 @@
   justify-content: center;
   align-items: center;
 }
+
 .tweet {
   width: 85%;
   display: flex;
   flex-flow: column;
   justify-content: center;
-  /* background-color: rgb(228, 176, 118); */
   padding: 1.5em;
   margin-bottom: 1em;
   border: 2px solid #545149;

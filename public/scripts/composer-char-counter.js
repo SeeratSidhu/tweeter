@@ -5,14 +5,14 @@ $(document).ready(function() {
     const $form = $(this).closest('form');
     const $counter = $form.find('.counter');
     const charsLeft = (140 - text.length);
+
     $counter.html(charsLeft);
 
+    //if character count exceeded, add class to implement css
     if (charsLeft < 0) {
-      $counter.addClass('invalid');
-    } else {
-      $counter.removeClass('invalid');
+      return $counter.addClass('invalid');
     }
+    $counter.removeClass('invalid');
   });
-
 });
 
