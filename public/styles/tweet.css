@@ -61,6 +61,5 @@ article.tweet p {
 
 i:hover{
   color: #da9a5e;
-
-  
+  cursor: pointer;
 }
