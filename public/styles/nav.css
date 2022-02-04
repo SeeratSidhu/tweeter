@@ -28,3 +28,20 @@ nav > span {
   color: red;
 }
 
+.round-button {
+  background-color: rgba(255,0,0, 0.6);
+  border: none;
+  color: white;
+  padding: 30px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  border-radius: 60%;
+  align-self: flex-end;
+  font-size: 2em;
+  margin: 1em;
+}

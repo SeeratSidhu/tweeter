@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+  $('.round-button').hide();
+
   $('#tweet-text').on('input', function() {
     const text = $(this).val();
     const $form = $(this).closest('form');
@@ -14,5 +16,30 @@ $(document).ready(function() {
     }
     $counter.removeClass('invalid');
   });
+
+  // STRETCH: hide/show back-to-top button on scroll
+  $(window).scroll(function () {
+    const $roundButton = $('.round-button');
+    const $compose = $('.arrow');
+
+    if ($(this).scrollTop()) {
+      $roundButton.show();
+      $compose.hide();
+    } else {
+      $roundButton.hide();
+      $compose.show();
+    }
+  });
+
+  $('.round-button').on('click', function() {
+
+    if ($('.new-tweet').is(':hidden')) {
+      $('.arrow').trigger('click');
+    }
+    
+    $("html").animate({scrollTop: 0}, 500);
+    $('#tweet-text').focus();
+  });
+
 });
 
